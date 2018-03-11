@@ -42,7 +42,7 @@ body{
 }
 
 .addRowSpace {
-    margin-top: 7%;
+    margin-top: 3%;
 }
 
 .guess_page {
@@ -55,17 +55,18 @@ body{
     margin-left: -35em; 
     border: 1px solid #ccc;
     background-color: #ebe5e5;
+    opacity: 0.6;
 }
 
-#timeDisplay {
-    font-size: 1.3em;
+.timeDisplay {
+    font-size: 1.5em;
     color:black;
     font-family: 'Roboto', sans-serif;
 
 }
 
 #qDisplay {
-    font-size: 1.3em;
+    font-size: 1.5em;
     font-family: 'Roboto', sans-serif;
 
 }
@@ -74,4 +75,9 @@ body{
     font-size: 1.4em;
     font-family: 'Roboto', sans-serif;
 
+}
+
+.imageClass {
+    height: 22em;
+    opacity: 1;
 }
