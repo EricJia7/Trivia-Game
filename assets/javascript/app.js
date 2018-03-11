@@ -51,8 +51,8 @@ const Q14 = new TriviaQuestion("Today, our Thanksgiving is the fourth Thursday o
 ["This was the date set by President Franklin D. Roosevelt in 1939 and approved by Congress in 1941"]);
 
 const Q15 = new TriviaQuestion("The Pilgrims came to the New world seeking religious freedom and were also called:", 
-["The Puritans because they wanted to purify the teachings and ceremonies of the Church of England",
-"The Great Explorers","The Wanderers"], ["The Puritans because they wanted to purify the teachings and ceremonies of the Church of England"],"../images/Puritans.jpg");
+["The Puritans",
+"The Great Explorers","The Wanderers"], ["The Puritans"],"../images/Puritans.jpg");
 
 const Q16 = new TriviaQuestion("Which two actors directed themselves in movies and won Oscars for Best Actor?", 
 ["Al Pacino and Timothy Hutton","Jack Nicholson and Kevin Spacey","Laurence Olivier and Roberto Benigni","Tom Hanks and Paul Newman"], ["Laurence Olivier and Roberto Benigni"], 
@@ -62,18 +62,54 @@ const Q17 = new TriviaQuestion("Which movie won Best Picture of Oscars 2018?", [
 "Three Billboards Outside Ebbing, Missouri","Phantom Thread","All the Money in the World"], 
 ["The Shape of Water"], "../images/The-Shape-of-Water.jpg");
 
-const questionPool = [Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,Q10,Q11,Q12,Q13,Q14,Q15,Q16,Q17];
+const questionPool = [Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10, Q11, Q12, Q13, Q14, Q15, Q16, Q17];
 
 function ranNum(num) {
-    return Math.floor(Math.random() * num)
-}
+    return Math.floor(Math.random() * num);
+};
 
-var userSelectedTime = 0;
+var gamePlayHTML = 
+
+'<div class="container guess_page"> \
+<div class="col-md-2 "></div> \
+<div class="col-md-8"> \
+    <div class="row addRowSpace"></div> \
+    <div class="row"> \
+        <div class="col-md-12 text-center"> \
+            <p "text-center" id = "timeDisplay">Guess Time Left:  seconds</p> \
+        </div> \
+    </div> \
+    <br> \
+    <div class="row"> \
+        <div class="col-md-12"> \
+            <p "text-center" id = "qDisplay">Who is the only person to have served as both US Vice President and President without being elected to either office?</p> \
+        </div> \
+    </div> \
+    <br>  \
+    <div class="row"> \
+        <div class="col-md-2"></div> \
+        <div class="col-md-8 text-center"> \
+            <p id = "aDisplay">Lyndon B. Johnson</p> \
+            <p id = "aDisplay">George Washington</p> \
+            <p id = "aDisplay">Harry Truman</p> \
+            <p id = "aDisplay">Gerald Ford</p> \
+        </div> \   <div class="col-md-2"></div> \
+    </div> \
+</div> \
+<div class="col-md-2"></div> \
+</div>';
+
+var fname;
+var lname;
+var userSelectedTime;
 
 var timeDisplayStart = false;
 
+var timeHandle;
+
 var timeDisplay = {
-    time = userSelectedTime,
+
+    time: userSelectedTime,
 
     reset: function() {
         timeDisplay.time = userSelectedTime;
@@ -83,14 +119,33 @@ var timeDisplay = {
     start: function() {
         if(!timeDisplayStart) {
             $("#timeDisplay").text(timeDisplay.time);
-            setInterval(timeDisplay.count, 1000);
+            timeHandle = setInterval(timeDisplay.count, 1000);
             timeDisplayStart = true;
-        }
+        };
     },
 
     count: function() {
-        $("#timeDisplay").text(timeDisplay.time);
-        setInterval(timeDisplay.time--, 1000);
-    }
+        if(timeDisplay.time>=0) {
+            $("#timeDisplay").text(timeDisplay.time);
+            timeDisplay.time--;
+        } else {
+            clearInterval(timeHandle);
+        };
+    },
+};
 
-}
+$(".startBtn").click(function(){
+    fname = $("#first-name-text-input").val();
+    lname = $("#last-name-text-input").val();
+    userSelectedTime = $("#timeout-input").val();
+    $("#initial_page").parent().remove();
+    startGame();
+    $(".full-bg-img").addClass("full-bg-img-startGame");
+    $(".container").append(gamePlayHTML);
+});
+
+function startGame() {
+
+};
+
+

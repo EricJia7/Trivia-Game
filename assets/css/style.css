@@ -1,37 +1,77 @@
+body{
+    background: transparent;
+}
+
 .navbar-brand {
     font-size: 1.5em;
 }
 
-/* .backgroundImg:before {
-
-    content: "";
+.full-bg-img {
     position: absolute;
     z-index: -1;
+    content: "";
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    height: 60em;
+    height: 100%;
     background-image: url("../images/trivia_1.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    opacity: 0.5;
-} */
+    opacity: 1;
+}
 
-.backgroundImg {
-    position: relative;
-    z-index: -1;
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 60em;
-    background-image: url("../images/trivia_1.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    opacity: 0.5;
+.full-bg-img-startGame {
+    opacity: 0.6;
+}
+
+#questionBox {
+   z-index: 10;
+    color: antiquewhite;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.form-group {
+    font-size: 1.2em;
+
+}
+
+.startBtn {
+    font-size: 1em;
+}
+
+.addRowSpace {
+    margin-top: 7%;
+}
+
+.guess_page {
+    position:fixed;
+    top: 50%;
+    left: 50%;
+    width:70em;
+    height:40em;
+    margin-top: -20em; 
+    margin-left: -35em; 
+    border: 1px solid #ccc;
+    background-color: #ebe5e5;
+}
+
+#timeDisplay {
+    font-size: 1.3em;
+    color:black;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+#qDisplay {
+    font-size: 1.3em;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+#aDisplay {
+    font-size: 1.4em;
+    font-family: 'Roboto', sans-serif;
+
 }
