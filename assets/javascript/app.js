@@ -233,11 +233,6 @@ function selectQuestion() {
 
 };
 
-// $(".restartBtn").click(function(){
-//     questionPool = [Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10, Q11, Q12, Q13, Q14, Q15, Q16];
-//     selectQuestion();
-// });
-
 $(".startBtn").click(function(){
     fname = $("#first-name-text-input").val();
     lname = $("#last-name-text-input").val();
@@ -250,9 +245,3 @@ $(".startBtn").click(function(){
     selectQuestion();
     $(".startBtn").unbind("click");
 });
-
-$(".aDisplayBtn").click(function(){
-    var playerAns = $(this).attr("aDisPlayBtn-Data");
-    console.log("This is the answer:", playerAns);
-});
-
