@@ -80,4 +80,5 @@ body{
 .imageClass {
     height: 22em;
     opacity: 1;
+    border-radius: 10px;
 }

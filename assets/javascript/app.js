@@ -67,7 +67,7 @@ function ranNum(num) {
 
 var gamePlayHTML = 
 
-'<div class="container guess_page"> \
+'<div class="container guess_page rounded"> \
 <div class="col-md-1 "></div> \
 <div class="col-md-10"> \
     <div class="row addRowSpace"></div> \
@@ -89,7 +89,7 @@ var gamePlayHTML =
         </div> \   <div class="col-md-2"></div> \
     </div> \
     <div class="row"> \
-        <div class="col-md-12 text-center imgDisplay"> \
+        <div class="col-md-12 text-center imgDisplay rounded"> \
         </div> \
     </div> \
 </div> \
@@ -126,7 +126,7 @@ var timeDisplay = {
     start: function() {
         if(!timeDisplayStart) {
             qDisplay();
-            timeHandleId = setInterval(timeDisplay.count, 1000);
+            timeHandleId = setInterval(timeDisplay.count, 1100);
             timeDisplayStart = true;
             $(".aDisplayBtn").click(function(){
                 var playerAns = $(this).text();
@@ -137,14 +137,14 @@ var timeDisplay = {
                     correctGuess++;
                     console.log("correct guess now is:", correctGuess);
                     questionPool.splice(currentIndex,1);
-                    setTimeout(selectQuestion,3500);
+                    setTimeout(selectQuestion,4500);
                 } else if (playerAns != currentQ.answersOptions[0]) {
                     clearInterval(timeHandleId);
                     answersDisplay(false);
                     wrongGuess++;
                     console.log("wrong guess now is:", wrongGuess);
                     questionPool.splice(currentIndex,1);
-                    setTimeout(selectQuestion,3500);
+                    setTimeout(selectQuestion,4500);
                 };
             });
 
@@ -160,7 +160,7 @@ var timeDisplay = {
             answersDisplay();
             notAnswered++;
             questionPool.splice(currentIndex,1);
-            setTimeout(selectQuestion,3500);
+            setTimeout(selectQuestion,4000);
             clearInterval(timeHandleId);
         };
     },
@@ -194,8 +194,9 @@ function answersDisplay(booleanVaule) {
     } else if (timeDisplay.time > 0 && !booleanVaule) {
         $(".aDisplay").append('<p "text-center" id = "qDisplay"> Sorry! It is: '+ currentQ.answersOptions[0] +'</p>');
     };
-    $(".imgDisplay").append('<img class= "imageClass" src="' + currentQ.imgUrl + '" >');
+    $(".imgDisplay").append('<img class= "imageClass rounded" src="' + currentQ.imgUrl + '" >');
 };
+
 
 function displayReset() {
     $(".qDisplay").empty();
